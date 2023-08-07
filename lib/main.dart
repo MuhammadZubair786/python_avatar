@@ -1,6 +1,10 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:chatbot_app/constants/colors.dart';
+import 'package:chatbot_app/screens/OnBoarding/OnBoardingScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -65,17 +69,17 @@ import 'screens/user/messages.dart';
 import 'screens/user/nutritiontrackingmeal.dart';
 import 'trainer/CustomerRequests.dart';
 
-Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp();
-}
+// Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+//   await Firebase.initializeApp();
+// }
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(
-  );
+  // await Firebase.initializeApp(
+  // );
   HttpOverrides.global = new MyHttpOverrides();
-  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   runApp(const MyApp());
 }
 
@@ -87,12 +91,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  FireBaseNotificationServices notificationServices =
-      FireBaseNotificationServices();
-
-
- 
-
+  // FireBaseNotificationServices notificationServices =
+  //     FireBaseNotificationServices();
 
   void initState() {
     super.initState();
@@ -206,7 +206,9 @@ class _MyAppState extends State<MyApp> {
             ),
             GetPage(
               name: '/MessagesScreeen',
-              page: (() => MessagesScreeen(username: "",)),
+              page: (() => MessagesScreeen(
+                    username: "",
+                  )),
             ),
             GetPage(
               name: '/DrawerScreen',
@@ -298,9 +300,11 @@ class _MyAppState extends State<MyApp> {
               name: '/CreateNewPostScreen',
               page: (() => CreateNewPostScreen()),
             ),
-             GetPage(
+            GetPage(
               name: '/PostLike',
-              page: (() => PostLikes(postid: "1",)),
+              page: (() => PostLikes(
+                    postid: "1",
+                  )),
             ),
 
             GetPage(
@@ -360,160 +364,81 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
-    // checkuserState();
-    // // _getCurrentPosition();
-    // FirebaseMessaging _firebaseMessaging =
-    //     FirebaseMessaging.instance; // Change here
-    // _firebaseMessaging.getToken().then((token) {
-    //   deviceToken = token;
-    //   //print('DEVICE TOKEN: $deviceToken');
-    // });
-    // if (Platform.isIOS) {
-    //   deviceType = 'ios';
-    // } else {
-    //   deviceType = 'android';
-    // }
+    Future.delayed(Duration(seconds: 10), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => OnBoardingScreen()),
+      );
+    });
   }
-
-  // checkuserState() async {
-  //   final SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   var userlogin = false;
-  //   userlogin = await prefs.getBool("User_login")!;
-  //   var name = await prefs.getString("username");
-  //   log(name!);
-  //   log(userlogin.toString());
-
-  //   if (userlogin) {
-  //     username = await prefs.getString("username")!;
-  //     userId = await prefs.getString("userId")!;
-  //     follower = await prefs.getInt("follower").toString();
-  //     following = await prefs.getInt("following").toString();
-  //     newToken = await prefs.getString("newToken")!;
-  //     userType = await prefs.getString("userType")!;
-  //     // //print("yes");
-  //     Get.offAll(CustomBottomNavigation());
-  //   }
-
-    // if (userlogin==true) {
-
-    // username = prefs.getString("username")!;
-    // userId = prefs.getString("userId")!;
-    // follower = prefs.getInt("follower").toString();
-    // following = prefs.getInt("following").toString();
-    // newToken = prefs.getString("newToken")!;
-    // userType = prefs.getString("userType")!;
-    //   Get.offAll(CustomBottomNavigation());
-    // }
-  }
-
-  // Position? _currentPosition;
-
-  // Future<void> _getCurrentPosition() async {
-  //   final hasPermission = await _handleLocationPermission();
-  //   if (!hasPermission) return;
-  //   await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high)
-  //       .then((Position position) {
-  //     setState(() {
-  //       _currentPosition = position;
-  //       latitude = _currentPosition?.latitude;
-  //       longitude = _currentPosition?.longitude;
-  //     });
-  //   }).catchError((e) {
-  //     debug//print(e);
-  //   });
-  // }
-
-  // Future<bool> _handleLocationPermission() async {
-  //   bool serviceEnabled;
-  //   LocationPermission permission;
-
-  //   serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  //   if (!serviceEnabled) {
-  //     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-  //         content: Text(
-  //             'Location services are disabled. Please enable the services')));
-  //     return false;
-  //   }
-  //   permission = await Geolocator.checkPermission();
-  //   if (permission == LocationPermission.denied) {
-  //     permission = await Geolocator.requestPermission();
-  //     if (permission == LocationPermission.denied) {
-  //       ScaffoldMessenger.of(context).showSnackBar(
-  //           const SnackBar(content: Text('Location permissions are denied')));
-  //       return false;
-  //     }
-  //   }
-  //   if (permission == LocationPermission.deniedForever) {
-  //     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-  //         content: Text(
-  //             'Location permissions are permanently denied, we cannot request permissions.')));
-  //     return false;
-  //   }
-  //   return true;
-  // }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(
-            'assets/Slicing/Android/drawable-hdpi/Group 240.png',
+      decoration: BoxDecoration(color: grey
+          // image: DecorationImage(
+          //   image: AssetImage(
+          //     'assets/Slicing/Android/drawable-hdpi/logo-5.png',
+          //   ),
+          //   fit: BoxFit.cover,
+          // ),
           ),
-          fit: BoxFit.cover,
-        ),
-      ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Container(
-          width: double.infinity,
+  width: double.infinity,
+  child: Padding(
+    padding: EdgeInsets.symmetric(horizontal: 72.w),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(height: 20),
+        Container(
+          margin: EdgeInsets.only(top: 20),
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 72.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(height: 97.h),
-                Container(
-                  width: 196.w,
-                  height: 158.h,
-                  child: Image.asset(
-                    "assets/Slicing/Android/drawable-hdpi/logo-5.png",
-                  ),
+             padding: const EdgeInsets.all(20.0),
+            child: CircleAvatar(
+              radius: 30,
+              child: ClipOval(
+                child: Image.asset(
+                  "assets/Slicing/Android/drawable-hdpi/logo-5.jpg",
                 ),
-                SizedBox(height: 514.h),
-                GestureDetector(
-                  onTap: () {
-                    // Get.toNamed("/SocialLoginScreen");
-                    Get.toNamed("/UserSelectionScreen");
-                  },
-                  child: Container(
-                    width: 284.w,
-                    height: 70.h,
-                    decoration: BoxDecoration(
-                      // gradient: kprimary,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          // spreadRadius: 5,
-                          // blurRadius: 0,
-                          offset: Offset(0, 0), // changes position of shadow
-                        ),
-                      ],
-                      border: Border.all(color: Colors.white, width: 3.sp),
-                      borderRadius: BorderRadius.circular(50.r),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "GET START",
-                        style: TextStyle(color: Colors.white, fontSize: 25.sp),
-                      ),
-                    ),
-                  ),
-                )
-              ],
+              ),
             ),
           ),
         ),
+        SizedBox(height: 120),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Video Box",
+              style: TextStyle(
+                fontSize: 35,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 200, 203, 203),
+              ),
+            ),
+            SizedBox(height:MediaQuery.of(context).size.height*0.4),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Text(
+                "Doppelgänger",
+                style: TextStyle(
+                  fontSize: 35,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 3, 67, 76),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
+  ),
+),
+
       ),
     );
   }

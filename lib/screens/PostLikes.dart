@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:chatbot_app/Api.dart';
-import 'package:gymsta/constants/colors.dart';
+import 'package:chatbot_app/constants/colors.dart';
 
 import '../controllers/LikeController.dart';
 

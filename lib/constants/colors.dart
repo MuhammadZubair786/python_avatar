@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 const kprimary = LinearGradient(
   begin: Alignment.topCenter,
   end: Alignment.bottomCenter,
-  colors: [Color(0xffFDAA4A), Color(0xffFD6939)],
+  colors: [ Color.fromARGB(255, 5, 171, 193),Color.fromARGB(255, 3, 67, 76)],
 );
 
 const kprimary2 = LinearGradient(
@@ -19,8 +19,8 @@ const kprimary3 = LinearGradient(
   colors: [Color(0xffFF5C4D), Color(0xffCB3E32)],
 );
 
-const bprimary = Color(0xffFD6839);
-const grey = Colors.grey;
+const bprimary = Color.fromARGB(255, 234, 236, 237);
+const grey = Color.fromARGB(255, 89, 87, 87);
 const white = Colors.white;
 const black = Colors.black;
 const red = Colors.red;
