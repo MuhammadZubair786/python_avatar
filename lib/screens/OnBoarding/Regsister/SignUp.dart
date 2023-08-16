@@ -9,6 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+
 
 import '../../../export_all.dart';
 import '../../../widgets/disallow_indicator_widget.dart';
@@ -48,6 +51,15 @@ class _SignUpUserState extends State<SignUpUser> {
     }
   }
 
+authCreateUser()async{
+  print("test");
+  FirebaseAuth auth = FirebaseAuth.instance;
+    UserCredential userCredential = await auth
+            .createUserWithEmailAndPassword(email: "new@gmail.com", password: "1234567");
+        String User_Uid = userCredential.user!.uid;
+        print(userCredential.user!.uid);
+  
+}
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -329,13 +341,16 @@ class _SignUpUserState extends State<SignUpUser> {
                         SizedBox(height: 30.h),
                         GestureDetector(
                           onTap: () async {
-                            Get.to(() => LoginUser());
+                            // Get.to(() => LoginUser());
                             // log('valud; $selectedValue');
-                            if (_form.currentState!.validate() &&
-                                selectedValue != null) {
-                              setState(() {
-                                showDropDownValidation = false;
-                              });
+                            // if (_form.currentState!.validate() &&
+                            //     selectedValue != null) {
+                            //   setState(() {
+                            //     showDropDownValidation = false;
+                            //   });
+
+
+                              authCreateUser();
                               //   var data = {
                               //     "fullName": fullNameController.text.trim(),
                               //     "email": userEmailController.text.trim(),
@@ -351,7 +366,7 @@ class _SignUpUserState extends State<SignUpUser> {
                               //   setState(() {
                               //     showDropDownValidation = true;
                               //   });
-                            }
+                            // }
                           },
                           child: Container(
                             width: 356.w,

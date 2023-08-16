@@ -78,6 +78,9 @@ dependencies:
   flutter_datetime_picker_plus: ^2.0.0+1
   shared_preferences: ^2.1.1
   socket_io_client: ^2.0.2
+  firebase_auth: ^4.7.2
+  firebase_database: ^10.2.4
+  firebase_storage: ^11.2.5
 
 dev_dependencies:
   flutter_test:

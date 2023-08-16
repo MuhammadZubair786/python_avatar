@@ -76,8 +76,8 @@ import 'trainer/CustomerRequests.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // await Firebase.initializeApp(
-  // );
+  await Firebase.initializeApp(
+  );
   HttpOverrides.global = new MyHttpOverrides();
   // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   runApp(const MyApp());
