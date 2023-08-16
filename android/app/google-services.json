@@ -1,15 +1,16 @@
 {
   "project_info": {
     "project_number": "940669930570",
+    "firebase_url": "https://chatbot-app-e040a-default-rtdb.firebaseio.com",
     "project_id": "chatbot-app-e040a",
     "storage_bucket": "chatbot-app-e040a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:940669930570:android:2941f403dd24e7ab44eab3",
+        "mobilesdk_app_id": "1:940669930570:android:43ccb4e9fbfc75a444eab3",
         "android_client_info": {
-          "package_name": "com.example.chatbot_app"
+          "package_name": "com.testapp"
         }
       },
       "oauth_client": [
