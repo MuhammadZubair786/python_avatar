@@ -388,7 +388,7 @@ class _SplashScreenState extends State<SplashScreen> {
         body: Container(
   width: double.infinity,
   child: Padding(
-    padding: EdgeInsets.symmetric(horizontal: 72.w),
+    padding: EdgeInsets.symmetric(horizontal: 12.w),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -396,7 +396,7 @@ class _SplashScreenState extends State<SplashScreen> {
         Container(
           margin: EdgeInsets.only(top: 20),
           child: Padding(
-             padding: const EdgeInsets.all(20.0),
+             padding: const EdgeInsets.only(left:0.0,right: 5,bottom: 20,top: 20),
             child: CircleAvatar(
               radius: 30,
               child: ClipOval(

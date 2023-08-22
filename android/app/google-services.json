@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "940669930570",
-    "firebase_url": "https://chatbot-app-e040a-default-rtdb.firebaseio.com",
-    "project_id": "chatbot-app-e040a",
-    "storage_bucket": "chatbot-app-e040a.appspot.com"
+    "project_number": "451564644427",
+    "firebase_url": "https://ai-app-dc793-default-rtdb.firebaseio.com",
+    "project_id": "ai-app-dc793",
+    "storage_bucket": "ai-app-dc793.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:940669930570:android:43ccb4e9fbfc75a444eab3",
+        "mobilesdk_app_id": "1:451564644427:android:37f0ffd2ac676ff3d505ce",
         "android_client_info": {
           "package_name": "com.testapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "940669930570-heu6sv5o8cphktgf34ot88jn7s0isjt6.apps.googleusercontent.com",
+          "client_id": "451564644427-ska89lokprmjnfpr4ar2ftgosibr0lfo.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBvrueUqtZL0Xuh9lUfQALF6P40B9UEtG0"
+          "current_key": "AIzaSyDlUB3Un2kuoMK1D7ngKilw11X7PBThAdE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "940669930570-heu6sv5o8cphktgf34ot88jn7s0isjt6.apps.googleusercontent.com",
+              "client_id": "451564644427-ska89lokprmjnfpr4ar2ftgosibr0lfo.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
